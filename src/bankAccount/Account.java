@@ -53,7 +53,12 @@ public class Account {
         if(balanceIsNotSufficient) throw new IllegalArgumentException("Insufficient Balance");
     }
 
-//    public void setPin(String password){
-//        this.password = password;
-//    }
+    public String getNumber(){
+        return this.number;
+    }
+
+    public String getAccountName(){
+        return this.name;
+    }
+
 }

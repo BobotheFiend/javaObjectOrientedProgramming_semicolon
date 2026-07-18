@@ -17,18 +17,15 @@ public class Entry {
     }
 
     private String formatDateTime(){
-        LocalDateTime day = LocalDateTime.now();
+        LocalDateTime onThisDay = LocalDateTime.now();
         DateTimeFormatter formatDayAndTime = DateTimeFormatter.ofPattern("EEEE, dd-MMM-yyyy  hh:mm a");
-        return day.format(formatDayAndTime);
+        return onThisDay.format(formatDayAndTime);
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -50,7 +47,4 @@ public class Entry {
         return day;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
 }
