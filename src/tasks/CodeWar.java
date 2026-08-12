@@ -14,4 +14,5 @@ public class CodeWar {
         }
         return collection;
     }
+
 }
