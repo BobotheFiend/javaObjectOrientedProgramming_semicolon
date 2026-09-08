@@ -46,4 +46,30 @@ public class LowestCommonMultipleTest {
 
     }
 
+    @Test
+    public void threeeNumberslowestCommonMultipleTest() {
+        //Given
+        int [] collection = {12, 75, 15};
+
+        //When
+        int expected = lcm(collection);
+
+        //Asser That
+        assertEquals(300, expected);
+
+    }
+
+    @Test
+    public void twoNumberslowestCommonMultipleTest() {
+        //Given
+        int [] collection = {2, 12};
+
+        //When
+        int expected = lcm(collection);
+
+        //Asser That
+        assertEquals(12, expected);
+
+    }
+
 }

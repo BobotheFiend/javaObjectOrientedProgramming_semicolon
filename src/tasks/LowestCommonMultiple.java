@@ -72,10 +72,5 @@ public class LowestCommonMultiple {
         return newDivisor;
     }
 
-
-
-public static void main() {
-        int [] collection = {2,8,12};
-        System.out.println(LowestCommonMultiple.lcm(collection));
-    }
+    
 }
