@@ -33,7 +33,6 @@ public class RotateArrayTwiceToTheLeftTest {
 
         //Assert That
         int [] result = {6,2,3};
-        System.out.println(Arrays.toString(result));
 
         assertArrayEquals(expected, result);
     }
@@ -48,7 +47,6 @@ public class RotateArrayTwiceToTheLeftTest {
 
         //Assert That
         int [] result = {2, 3, 6, 4, 10, 66};
-        System.out.println(Arrays.toString(result));
 
         assertArrayEquals(expected, result);
     }
