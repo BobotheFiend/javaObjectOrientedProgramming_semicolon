@@ -72,11 +72,50 @@ public class HugeInteger {
         return false;
     }
 
-    public boolean isLessThan(){return false;}
+    public boolean isLessThan(HugeInteger input){
+        int length = input.length();
 
-    public boolean isGreaterThanOrEqualTo(){return false;}
+        if (userInputLength < length) return true;
 
-    public boolean  isLessThanOrEqualTo(){return false;}
+        if (userInputLength == length){
+
+            for(int count=0; count < userInputLength; count++){
+                if (holdUserInput.charAt(count) < input.toString().charAt(count)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isGreaterThanOrEqualTo(HugeInteger input){
+        int length = input.length();
+
+        if (userInputLength > length) return true;
+
+        if (userInputLength == length){
+
+            for(int count=0; count < userInputLength; count++){
+                if (holdUserInput.charAt(count) >= input.toString().charAt(count)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean  isLessThanOrEqualTo(HugeInteger input){
+        int length = input.length();
+
+        if (userInputLength < length) return true;
+
+        if (userInputLength == length){
+
+            for(int count=0; count < userInputLength; count++){
+                if (holdUserInput.charAt(count) <= input.toString().charAt(count)) return true;
+            }
+        }
+
+        return false;
+    }
 
     public boolean isZero(){
         for(int element : this.array) if (element != 0) return false;
