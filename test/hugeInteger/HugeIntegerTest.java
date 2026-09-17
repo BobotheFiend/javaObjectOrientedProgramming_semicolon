@@ -183,6 +183,14 @@ public class HugeIntegerTest {
         assertFalse(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
     }
 
+    @Test
+    public void checkHugeInteger_whenInputIsSameLength_IsLessThanOrEqualsToTestIsFalse(){
+        hugeInteger.parse("59");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("50");
+        assertFalse(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
+    }
+
 
 
 }

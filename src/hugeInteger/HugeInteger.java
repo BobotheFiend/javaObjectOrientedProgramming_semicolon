@@ -16,9 +16,8 @@ public class HugeInteger {
         this.array = new int [40];
     }
 
-    public BigInteger getValue(){
-
-        return  new BigInteger(holdUserInput);
+    public String getValue(){
+        return  holdUserInput;
     }
     public void parse(String number){
         validateInput(number);
