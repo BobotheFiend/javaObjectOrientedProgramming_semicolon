@@ -261,4 +261,34 @@ public class HugeIntegerTest {
         hugeInteger2.parse("26388386647744777");
         assertTrue(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
     }
+
+
+    @Test
+    public void addTwoHugeInteger_200004Plus200004_isAddMethodsReturns400008Test(){
+        hugeInteger.parse("200004");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("200004");
+        HugeInteger expected = hugeInteger.add(hugeInteger2);
+        assertEquals("400008", expected.toString());
+    }
+
+    @Test
+    public void addTwoHugeInteger_4000901Plus400_isAddMethodsReturns4001301Test(){
+        hugeInteger.parse("400");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("4000901");
+        HugeInteger expected = hugeInteger.add(hugeInteger2);
+        assertEquals("4001301", expected.toString());
+    }
+
+    @Test
+    public void addTwoHugeInteger_49999991Plus20_isAddMethodsReturns500000011Test(){
+        hugeInteger.parse("20");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("49999991");
+        HugeInteger expected = hugeInteger.add(hugeInteger2);
+        assertEquals("50000011", expected.toString());
+    }
+
+
 }

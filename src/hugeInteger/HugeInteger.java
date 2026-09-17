@@ -16,9 +16,7 @@ public class HugeInteger {
         this.array = new int [40];
     }
 
-    public String getValue(){
-        return  holdUserInput;
-    }
+
     public void parse(String number){
         validateInput(number);
         userInputLength = number.length();
@@ -40,20 +38,166 @@ public class HugeInteger {
         return result.toString();
     }
 
-    public int add(){
-        return 0;
+    public HugeInteger add(HugeInteger input){
+//        HugeInteger result = new HugeInteger();
+//        StringBuilder summation = new StringBuilder();
+//        int topStartingPoint;
+//        int bottomStartingPoint;
+//        int htu;
+//        int sum;
+//        int carryover = 0;
+//
+//        if(isGreaterThanOrEqualTo(input)){
+//            htu = length();
+//            topStartingPoint = length()-1;
+//            bottomStartingPoint = input.length() -1;
+//
+//            String top = toString();
+//            String bottom = input.toString();
+//
+//            for(int count =0; count<htu; count++){
+//                int leftSide = Character.getNumericValue(top.charAt(topStartingPoint));
+//                int rightSide = Character.getNumericValue(bottom.charAt(bottomStartingPoint));
+//
+//                if(count >= input.length() && carryover == 0){
+//                    summation.append(leftSide);
+//                }
+//
+//                else {
+//                    if (carryover != 0) {
+//                        sum = leftSide + rightSide + carryover;
+//                        carryover = 0;
+//                    } else sum = leftSide + rightSide;
+//
+//                    String sumOutCome = "" + sum;
+//
+//                    if (sumOutCome.length() > 1) {
+//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
+//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
+//                    }
+//                    summation.append(sum);
+//
+//                }
+//                if(count <= input.length())bottomStartingPoint--;
+//                topStartingPoint--;
+//            }
+//        }
+//        else{
+//            htu = input.length();
+//            topStartingPoint = input.length()-1;
+//            bottomStartingPoint = length() -1;
+//
+//            String top = input.toString();
+//            String bottom = toString();
+//
+//
+//            for(int count =0; count<htu; count++){
+//                int leftSide = Character.getNumericValue(top.charAt(topStartingPoint));
+//                int rightSide = Character.getNumericValue(bottom.charAt(bottomStartingPoint));
+//
+//                if(count >= length() && carryover == 0){
+//                    summation.append(leftSide);
+//                }
+//                else if (carryover != 0 && count >= length()) {
+//                    sum = leftSide + carryover;
+//                    String sumOutCome = "" + sum;
+//                    if (sumOutCome.length() > 1) {
+//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
+//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
+//                    }
+//                    summation.append(sum);
+//
+//                }
+//                else {
+//                    if (carryover != 0) {
+//                        sum = leftSide + rightSide + carryover;
+//                        carryover = 0;
+//                    }
+//
+//                    else sum = leftSide + rightSide;
+//
+//                    String sumOutCome = "" + sum;
+//
+//
+//                    if (sumOutCome.length() > 1) {
+//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
+//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
+//                    }
+//                    summation.append(sum);
+//                }
+//                if(count <= length()) bottomStartingPoint--;
+//                topStartingPoint--;
+//            }
+//        }
+//
+//        if (carryover != 0) summation.append(carryover);
+//
+//        summation.reverse();
+//        result.parse(summation.toString());
+
+
+        HugeInteger result = new HugeInteger();
+        StringBuilder summation = new StringBuilder();
+        int sum;
+        int carryover = 0;
+        String top = getArrayToString();
+        String bottom = input.getArrayToString();
+        int lengthOfTheSum;
+        if(isGreaterThanOrEqualTo(input))lengthOfTheSum = length();
+        else lengthOfTheSum = input.length();
+        int increament = 1;
+        for(int count = array.length-1; count >= 0; count--) {
+            int leftSide = Character.getNumericValue(top.charAt(count));
+            int rightSide = Character.getNumericValue(bottom.charAt(count));
+
+            if(carryover == 0 && leftSide == 0 && rightSide == 0 && increament >= lengthOfTheSum) break;
+            increament++;
+
+            if (carryover != 0) {
+                sum = leftSide + rightSide + carryover;
+                carryover = 0;
+            } else sum = leftSide + rightSide;
+
+            String sumOutCome = "" + sum;
+
+            if (sumOutCome.length() > 1) {
+                sum = Character.getNumericValue(sumOutCome.charAt(1));
+                carryover = Character.getNumericValue(sumOutCome.charAt(0));
+            }
+            summation.append(sum);
+
+
+        }
+
+
+        summation.reverse();
+        result.parse(summation.toString());
+        return result;
     }
 
-    public int subtract(){
-        return 0;
+
+    public HugeInteger subtract(){
+        HugeInteger result = new HugeInteger();
+
+        return result;
     }
 
+    public String getArrayToString() {
+        StringBuilder result = new StringBuilder();
+        int counter =  array.length - userInputLength - 1;
+        int start =  array.length-1;
+        for(int count= 0; count < array.length;count++){
+            if(count > counter) result.append(array[start--]);
+            else result.append(array[count]);
+        }
+        return result.toString();
+    }
     public boolean isEquals(HugeInteger input){
-        return holdUserInput.equals(input.toString());
+        return toString().equals(input.toString());
     }
 
     public boolean isNotEquals(HugeInteger input){
-        return !holdUserInput.equals(input.toString());
+        return !toString().equals(input.toString());
     }
 
     public boolean isGreaterThan(HugeInteger  input){
@@ -64,7 +208,7 @@ public class HugeInteger {
         if (userInputLength == length){
 
             for(int count=0; count < userInputLength; count++){
-                if (holdUserInput.charAt(count) > input.toString().charAt(count)) return true;
+                if (toString().charAt(count) > input.toString().charAt(count)) return true;
             }
         }
 
@@ -79,7 +223,7 @@ public class HugeInteger {
         if (userInputLength == length){
 
             for(int count=0; count < userInputLength; count++){
-                if (holdUserInput.charAt(count) < input.toString().charAt(count)) return true;
+                if (toString().charAt(count) < input.toString().charAt(count)) return true;
             }
         }
 
