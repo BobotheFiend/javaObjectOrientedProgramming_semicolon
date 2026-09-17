@@ -165,6 +165,19 @@ public class HugeIntegerTest {
     }
 
 
+
+
+    @Test
+    public void checkHugeInteger_whenInputIsSameLength_IsLessThanOrEqualsToTestIsFalse(){
+
+        hugeInteger.parse("345748393");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("345748390");
+        assertFalse(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
+    }
+
+
+
     @Test
     public void checkHugeInteger_whenInputIsSameLength_IsLessThanOrEqualsToTestIsTrue(){
 
@@ -174,23 +187,78 @@ public class HugeIntegerTest {
         assertTrue(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
     }
 
-    @Test
-    public void checkHugeInteger_whenInputIsSameLength_IsLessThanOrEqualsToTestIsFalse(){
 
-        hugeInteger.parse("59");
+
+    @Test
+    public void checkHugeInteger_IsLessThanOrEqualsToTestIsFalse(){
+        hugeInteger.parse("1121114834734738");
         HugeInteger hugeInteger2 = new HugeInteger();
-        hugeInteger2.parse("50");
+        hugeInteger2.parse("7994003999999");
         assertFalse(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
     }
 
     @Test
-    public void checkHugeInteger_whenInputIsSameLength_IsLessThanOrEqualsToTestIsFalse(){
-        hugeInteger.parse("59");
+    public void checkHugeInteger_whenItIsEqual_IsLessThanOrEqualsToIsTrueTest(){
+        hugeInteger.parse("7994003000000");
         HugeInteger hugeInteger2 = new HugeInteger();
-        hugeInteger2.parse("50");
-        assertFalse(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
+        hugeInteger2.parse("7994003000000");
+        assertTrue(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
+    }
+
+    @Test
+    public void checkHugeInteger_IsLessThanOrEqualsToIsTrueTest(){
+        hugeInteger.parse("26388386647744777");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("7994003000000774673");
+        assertTrue(hugeInteger.isLessThanOrEqualTo(hugeInteger2));
     }
 
 
 
+
+    @Test
+    public void checkHugeInteger_whenInputIsSameLength_IsGreaterThanOrEqualsToTestIsFalse(){
+
+        hugeInteger.parse("345748390");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("345748891");
+        assertFalse(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
+    }
+
+
+
+    @Test
+    public void checkHugeInteger_whenInputIsSameLength_IsGreaterThanOrEqualsToTestIsTrue(){
+
+        hugeInteger.parse("589900000567890888999000444000000000000");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("589900000567890888999000444000000000000");
+        assertTrue(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
+    }
+
+
+
+    @Test
+    public void checkHugeInteger_IsGreaterThanOrEqualsToTestIsFalse(){
+        hugeInteger.parse("7994003000000");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("5788574834734738");
+        assertFalse(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
+    }
+
+    @Test
+    public void checkHugeInteger_whenItIsEqual_IsGreaterThanOrEqualsToIsTrueTest(){
+        hugeInteger.parse("7994003000000");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("7994003000000");
+        assertTrue(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
+    }
+
+    @Test
+    public void checkHugeInteger_IsGreaterThanOrEqualsToIsTrueTest(){
+        hugeInteger.parse("7994003000000774673");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("26388386647744777");
+        assertTrue(hugeInteger.isGreaterThanOrEqualTo(hugeInteger2));
+    }
 }
