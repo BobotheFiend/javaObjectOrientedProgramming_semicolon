@@ -88,33 +88,11 @@ public class HugeInteger {
     }
 
     public boolean isGreaterThanOrEqualTo(HugeInteger input){
-        int length = input.length();
-
-        if (userInputLength > length) return true;
-
-        if (userInputLength == length){
-
-            for(int count=0; count < userInputLength; count++){
-                if (holdUserInput.charAt(count) >= input.toString().charAt(count)) return true;
-            }
-        }
-
-        return false;
+        return isGreaterThan(input) || isEquals(input);
     }
 
     public boolean  isLessThanOrEqualTo(HugeInteger input){
-        int length = input.length();
-
-        if (userInputLength < length) return true;
-
-        if (userInputLength == length){
-
-            for(int count=0; count < userInputLength; count++){
-                if (holdUserInput.charAt(count) <= input.toString().charAt(count)) return true;
-            }
-        }
-
-        return false;
+        return isLessThan(input) || isEquals(input);
     }
 
     public boolean isZero(){
