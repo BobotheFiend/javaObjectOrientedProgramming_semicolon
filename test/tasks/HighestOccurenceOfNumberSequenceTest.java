@@ -29,4 +29,29 @@ public class HighestOccurenceOfNumberSequenceTest {
         //Assert that
         assertEquals(actual, expected);
     }
+
+
+    @Test
+    public void usingLinearSearchMethodTest(){
+        //Given
+        int [] input = {2, 2, 3, 5, 6, 7, 8};
+
+        //When
+        int expected = HighestOccurenceOfNumberSequence.usingLinearSearch(input);
+        int actual = 4;
+        //Assert that
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void usingLinearSearchMethodForNegativesTest(){
+        //Given
+        int [] input = {1, 2, 3, 5, 6, 7, 8, -5, -4,-3,-2,-1,-1,-1,0};
+
+        //When
+        int expected = HighestOccurenceOfNumberSequence.usingLinearSearch(input);
+        int actual = 5;
+        //Assert that
+        assertEquals(actual, expected);
+    }
 }
