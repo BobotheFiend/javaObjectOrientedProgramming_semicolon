@@ -39,118 +39,30 @@ public class HugeInteger {
     }
 
     public HugeInteger add(HugeInteger input){
-//        HugeInteger result = new HugeInteger();
-//        StringBuilder summation = new StringBuilder();
-//        int topStartingPoint;
-//        int bottomStartingPoint;
-//        int htu;
-//        int sum;
-//        int carryover = 0;
-//
-//        if(isGreaterThanOrEqualTo(input)){
-//            htu = length();
-//            topStartingPoint = length()-1;
-//            bottomStartingPoint = input.length() -1;
-//
-//            String top = toString();
-//            String bottom = input.toString();
-//
-//            for(int count =0; count<htu; count++){
-//                int leftSide = Character.getNumericValue(top.charAt(topStartingPoint));
-//                int rightSide = Character.getNumericValue(bottom.charAt(bottomStartingPoint));
-//
-//                if(count >= input.length() && carryover == 0){
-//                    summation.append(leftSide);
-//                }
-//
-//                else {
-//                    if (carryover != 0) {
-//                        sum = leftSide + rightSide + carryover;
-//                        carryover = 0;
-//                    } else sum = leftSide + rightSide;
-//
-//                    String sumOutCome = "" + sum;
-//
-//                    if (sumOutCome.length() > 1) {
-//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
-//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
-//                    }
-//                    summation.append(sum);
-//
-//                }
-//                if(count <= input.length())bottomStartingPoint--;
-//                topStartingPoint--;
-//            }
-//        }
-//        else{
-//            htu = input.length();
-//            topStartingPoint = input.length()-1;
-//            bottomStartingPoint = length() -1;
-//
-//            String top = input.toString();
-//            String bottom = toString();
-//
-//
-//            for(int count =0; count<htu; count++){
-//                int leftSide = Character.getNumericValue(top.charAt(topStartingPoint));
-//                int rightSide = Character.getNumericValue(bottom.charAt(bottomStartingPoint));
-//
-//                if(count >= length() && carryover == 0){
-//                    summation.append(leftSide);
-//                }
-//                else if (carryover != 0 && count >= length()) {
-//                    sum = leftSide + carryover;
-//                    String sumOutCome = "" + sum;
-//                    if (sumOutCome.length() > 1) {
-//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
-//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
-//                    }
-//                    summation.append(sum);
-//
-//                }
-//                else {
-//                    if (carryover != 0) {
-//                        sum = leftSide + rightSide + carryover;
-//                        carryover = 0;
-//                    }
-//
-//                    else sum = leftSide + rightSide;
-//
-//                    String sumOutCome = "" + sum;
-//
-//
-//                    if (sumOutCome.length() > 1) {
-//                        sum = Character.getNumericValue(sumOutCome.charAt(1));
-//                        carryover = Character.getNumericValue(sumOutCome.charAt(0));
-//                    }
-//                    summation.append(sum);
-//                }
-//                if(count <= length()) bottomStartingPoint--;
-//                topStartingPoint--;
-//            }
-//        }
-//
-//        if (carryover != 0) summation.append(carryover);
-//
-//        summation.reverse();
-//        result.parse(summation.toString());
 
+        validateInput(input.toString());
 
         HugeInteger result = new HugeInteger();
         StringBuilder summation = new StringBuilder();
+
         int sum;
         int carryover = 0;
+
         String top = getArrayToString();
         String bottom = input.getArrayToString();
+
         int lengthOfTheSum;
+
         if(isGreaterThanOrEqualTo(input))lengthOfTheSum = length();
         else lengthOfTheSum = input.length();
+
         int increament = 1;
+
         for(int count = array.length-1; count >= 0; count--) {
             int leftSide = Character.getNumericValue(top.charAt(count));
             int rightSide = Character.getNumericValue(bottom.charAt(count));
 
-            if(carryover == 0 && leftSide == 0 && rightSide == 0 && increament >= lengthOfTheSum) break;
+            if(carryover == 0 && leftSide == 0 && rightSide == 0 && increament > lengthOfTheSum) break;
             increament++;
 
             if (carryover != 0) {
@@ -168,8 +80,7 @@ public class HugeInteger {
 
 
         }
-
-
+        if(summation.length() > 40 && carryover != 0) throw new IllegalArgumentException("Summation Failed, Length broken!!");
         summation.reverse();
         result.parse(summation.toString());
         return result;
@@ -250,8 +161,11 @@ public class HugeInteger {
     private void validateInput(String input){
         String cleanInput = input.replace(" ", "");
 
+        if (input.length() > 40) throw new IllegalArgumentException("HugeInteger Number too Large!!");
         for(int count=0;count<cleanInput.length();count++) {
             if (!Character.isDigit(cleanInput.charAt(count))) throw new IllegalArgumentException("Input Must be Numbers!!");
         }
     }
+
+
 }

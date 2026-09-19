@@ -290,5 +290,40 @@ public class HugeIntegerTest {
         assertEquals("50000011", expected.toString());
     }
 
+    @Test
+    public void addTwoHugeInteger_whenLengthIs40_isAddMethodsReturns900000000000000000000000000000000000000000Test(){
+        hugeInteger.parse("8000000000000000000000000000000000000000");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("1000000000000000000000000000000000000000");
+        HugeInteger expected = hugeInteger.add(hugeInteger2);
+        assertEquals("9000000000000000000000000000000000000000", expected.toString());
+    }
+
+    @Test
+    public void addTwoHugeInteger_whenLengthIs40_isAddMethodsReturns9999999999999999999999999999999999999999Test(){
+        hugeInteger.parse("8000000000000000000000000000000000000000");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("1999999999999999999999999999999999999999");
+        HugeInteger expected = hugeInteger.add(hugeInteger2);
+        assertEquals("9999999999999999999999999999999999999999", expected.toString());
+    }
+
+    @Test
+    public void addTwoHugeInteger_whenLengthIsAbove40_ThrowsErrorTest(){
+        assertThrows(IllegalArgumentException.class, () ->
+        hugeInteger.parse("80000000000000000000000000000000000000004"));
+    }
+
+    @Test
+    public void addTwoHugeInteger_whenLengthIsAbove40_isAddMethodsThrowsErrorTest(){
+        hugeInteger.parse("9999999999999999999999999999999999999999");
+        HugeInteger hugeInteger2 = new HugeInteger();
+        hugeInteger2.parse("9999999999999999999999999999999999999999");
+//        HugeInteger expected = hugeInteger.add(hugeInteger2);
+//
+//        assertEquals("9999999999999999999999999999999999999998", expected.toString());
+        assertThrows(IllegalArgumentException.class, () -> hugeInteger.add(hugeInteger2));
+    }
+
 
 }
