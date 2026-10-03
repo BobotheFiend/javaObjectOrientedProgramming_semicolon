@@ -8,9 +8,7 @@ public class TimeConversion {
     public static String convert(String input){
 
         String cleanInput  = input.trim();
-
         String am = "am";
-
 
         StringBuilder result = new StringBuilder();
         String letter = "";
@@ -21,14 +19,10 @@ public class TimeConversion {
             String convertToTwentyFourHours = twentyFourHourFormatAM(cleanInput);
             result.append(convertToTwentyFourHours);
 
-
-
             while(!letter.equalsIgnoreCase("a")){
                 result.append(letter);
                 letter = Character.toString(cleanInput.charAt(++count));
-
             }
-
             return result.toString();
         }
 
