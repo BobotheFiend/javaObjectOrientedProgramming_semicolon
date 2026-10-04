@@ -25,9 +25,7 @@ public class ShortestPalindromeByAppending {
                 result.append(checkTheInput);
                 makingAPalindrome = false;
             }
-
         }
-
         return result.toString();
     }
 
