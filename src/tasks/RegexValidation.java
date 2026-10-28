@@ -12,7 +12,7 @@ public class RegexValidation {
         return email.matches(regex);
     }
     public static boolean passwordValidator(String password){
-        String regex = "[a-zA-z0-9@#_+]{8,16}";
+        String regex = "^[a-zA-z0-9@#_+]{8,16}$";
 
         return password.matches(regex);
     }

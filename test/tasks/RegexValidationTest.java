@@ -32,7 +32,9 @@ public class RegexValidationTest {
             "'       ', false",
             "ASHEYRUWI_@, true",
             "tr  ytid_, false",
-            "Password@@, true"
+            "Password@@, true",
+            "Welcome 123$, false",
+            "Java Code@1, false"
 
     })
     public void passwordValidationTest(String password, boolean expected){
