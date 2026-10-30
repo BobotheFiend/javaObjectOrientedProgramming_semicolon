@@ -8,7 +8,7 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-27" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="" scope="TEST">
+    <orderEntry type="module-library" scope="TEST">
       <library name="JUnit6">
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/6.0.0/junit-jupiter-6.0.0.jar!/" />
@@ -27,48 +27,22 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
-        <ANNOTATIONS>
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-        </ANNOTATIONS>
         <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
+          <root url="file://$USER_HOME$/SEMICOLON/jars/lib" />
         </CLASSES>
-        <JAVADOC>
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-        </JAVADOC>
-        <NATIVE>
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-        </NATIVE>
-        <SOURCES>
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-          <root url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" recursive="false" />
-        <jarDirectory url="file://$USER_HOME$/Downloads/jackson-core-2.11.1.jar" recursive="false" type="SOURCES" />
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/SEMICOLON/jars/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
       <library>
-        <ANNOTATIONS>
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-        </ANNOTATIONS>
         <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
+          <root url="file://$USER_HOME$/SEMICOLON/jars/provider" />
         </CLASSES>
-        <JAVADOC>
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-        </JAVADOC>
-        <NATIVE>
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-        </NATIVE>
-        <SOURCES>
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-          <root url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" recursive="false" />
-        <jarDirectory url="file://$USER_HOME$/Downloads/jackson-databind-2.11.1.jar" recursive="false" type="SOURCES" />
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/SEMICOLON/jars/provider" recursive="false" />
       </library>
     </orderEntry>
   </component>
