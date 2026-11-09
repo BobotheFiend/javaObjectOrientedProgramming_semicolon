@@ -13,13 +13,13 @@ public class PredicateImpl {
 
         Predicate<String> supplyStrings = (word)->word.length()>6;
 
-//        String []  arrOfWords = {"Yam", "Rice", "Timothy", "Java", "Predicate", "Boolean"};
+        String []  arrOfWords = {"Yam", "Rice", "Timothy", "Java", "Predicate", "Boolean"};
 
 
-//        supplyStrings.test(Stream.generate(()-> {
-//            Random random = new Random();
-//            return arrOfWords[random.nextInt()];
-//        }));
+        supplyStrings.test(Stream.generate(()-> {
+            Random random = new Random();
+            return arrOfWords[random.nextInt(0, arrOfWords.length)];
+        }));
 
         System.out.println(supplyStrings.test("Hello"));
     }
