@@ -1,11 +1,9 @@
 package streamAndLamdas;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
 
 public class PredicateImpl {
 
@@ -21,5 +19,12 @@ public class PredicateImpl {
         String randomWord = arrOfWords[index];
 
         System.out.println("The outcome of the word " + randomWord + " is -> " + supplyStrings.test(randomWord));
+
+
+        Stream.generate(()-> arrOfWords[random.nextInt(0, arrOfWords.length)])
+                .limit(20)
+                .forEach((word)->{
+                    System.out.println(word + " -> " + supplyStrings.test(word));
+                });
     }
 }
